@@ -1,10 +1,12 @@
-  require 'reminder'
+# File: spec/reminder_spec.rb
 
-  RSpec.describe Reminder do
-    it "it reminds the user to perform the task" do 
-      reminder = Reminder.new("Jay")
-      reminder.remind_me_to("walk the dog")
-      result = reminder.remind()
-      expect(result).to eq "walk the dog, Jay!"
+require 'reminder'
+
+RSpec.describe Reminder do
+  context "when no task is set" do
+    it "fails" do
+      reminder = Reminder.new("Kay")
+      expect { reminder.remind()}.to raise_error "No reminder set!"
     end
   end
+end 
